@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
   </head>
   <body>
     <div class="sidebar">
@@ -61,36 +62,58 @@
             <h2 class="form-text span">Let's do this!</h2>
             <div class="input">
               <label for="name">First Name</label>
-              <input type="text" name="name" id="name" required />
+              <input
+                class="item"
+                type="text"
+                name="name"
+                id="name"
+                minlength="3"
+              />
+              <div class="error-text">First Name can't be empty</div>
             </div>
             <div class="input">
               <label for="last-name">Last Name</label>
-              <input type="text" name="last-name" id="last-name" required />
+              <input
+                class="item"
+                type="text"
+                name="last-name"
+                id="last-name"
+                minlength="3"
+              />
+              <div class="error-text">Last Name can't be empty</div>
             </div>
             <div class="input">
               <label for="email">Email</label>
-              <input type="email" name="email" id="email" required />
+              <input class="item" type="email" name="email" id="email" />
+              <div class="error-text">Email can't be empty</div>
             </div>
             <div class="input">
-              <label for="phone">Phone Number</label>
+              <label for="phone">Phone Number (Optional)</label>
               <input type="phone" name="phone" id="phone" />
             </div>
             <div class="input">
               <label for="password">Password</label>
-              <input type="password" name="password" id="password" required />
+              <input
+                class="item error"
+                type="password"
+                name="password"
+                id="password"
+              />
+              <div class="error-text">Password can't be empty</div>
             </div>
             <div class="input">
               <label for="password-confirm">Confirm Password</label>
               <input
+                class="item"
                 type="password"
                 name="password-confirm"
                 id="password-confirm"
-                required
               />
+              <div class="error-text">Confirmation can't be empty</div>
             </div>
           </div>
           <div class="form-button">
-            <button type="submit">Create Account !</button>
+            <button id="submit" type="submit">Create Account !</button>
           </div>
         </form>
         <p class="login-text">

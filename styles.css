@@ -1,3 +1,15 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+}
+
 *::before,
 * ::after,
 * {
@@ -57,9 +69,22 @@ body {
 .offset {
   transform: translateX(0.1px);
   font-size: 2rem;
-  background-image: linear-gradient(to right, rgb(60, 60, 185), orangered);
+  background-image: var(--gradient);
+  background-size: 300%;
   background-clip: text;
   color: transparent;
+  animation: gradientEffect 5s infinite;
+}
+@keyframes gradientEffect {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
 
 .sidebar-footer {
@@ -102,10 +127,18 @@ body {
 
 .input input {
   width: 180px;
+  background: transparent;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin: 6px 0;
+  padding: 5px;
 }
 
-.input input:invalid {
-  outline-color: red;
+.input input:focus {
+  border-color: rgba(4, 4, 242, 0.5);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 .input label {
@@ -126,6 +159,21 @@ body {
   padding-bottom: 30px;
 }
 
+.input.error .item {
+  border-color: #d93025;
+}
+
+.error-text,
+.password-error-text {
+  color: red;
+  font-size: 0.8rem;
+  display: none;
+}
+
+.input.error .error-text {
+  display: block;
+}
+
 .span {
   grid-column: span 2;
   font-size: 1.2rem;
@@ -140,16 +188,21 @@ body {
 
 .form-button button {
   padding: 12px 32px;
-  background: linear-gradient(to right, rgb(60, 60, 185), orangered);
+  background-image: linear-gradient(45deg, rgb(30, 30, 216), orangered);
   border: none;
   outline: none;
   border-radius: 6px;
-  box-shadow: 0 0 10px linear-gradient(to right, rgb(60, 60, 185), orangered);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   color: whitesmoke;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 1px;
+  transition: transform 0.5s;
+}
+
+.form-button button:hover {
+  transform: scale(1.1);
 }
 
 .login-text {
