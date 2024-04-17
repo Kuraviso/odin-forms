@@ -1,0 +1,160 @@
+*::before,
+* ::after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 20px; */
+  background-color: whitesmoke;
+}
+
+.sidebar-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-width: 300px;
+}
+
+.background-img {
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100px;
+  max-width: inherit;
+  width: 100%;
+  position: absolute;
+  top: 200px;
+  justify-content: space-evenly;
+  gap: 30px;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  color: white;
+}
+
+.logo-text {
+  color: whitesmoke;
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  transform: translateX(-50px);
+}
+
+.offset {
+  transform: translateX(0.1px);
+  font-size: 2rem;
+  background-image: linear-gradient(to right, rgb(60, 60, 185), orangered);
+  background-clip: text;
+  color: transparent;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.sidebar-footer a {
+  color: white;
+  font-style: none;
+}
+
+.hero-section {
+  margin-top: 100px;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+
+.text {
+  margin: 30px auto;
+}
+
+.form-section {
+  margin: 10px auto;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  max-height: 100vh;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input input {
+  width: 180px;
+}
+
+.input input:invalid {
+  outline-color: red;
+}
+
+.input label {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.form-inputs {
+  outline-color: gray;
+  background-color: white;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  padding-left: 20px;
+  gap: 20px;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  padding-bottom: 30px;
+}
+
+.span {
+  grid-column: span 2;
+  font-size: 1.2rem;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-button button {
+  padding: 12px 32px;
+  background: linear-gradient(to right, rgb(60, 60, 185), orangered);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px linear-gradient(to right, rgb(60, 60, 185), orangered);
+  font-size: 1rem;
+  color: whitesmoke;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.login-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
