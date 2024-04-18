@@ -98,7 +98,7 @@ form.addEventListener("submit", (e) => {
       text: "Your account is created!",
       icon: "success",
     });
+    form.reset();
+    return false;
   }
-  form.reset();
-  return false;
 });
