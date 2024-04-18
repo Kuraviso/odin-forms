@@ -10,11 +10,13 @@ const emailInput = document.getElementById("email");
 
 function checkInputs() {
   const items = form.querySelectorAll(".item");
+  let hasError = false;
 
   for (const item of items) {
     if (item.value === "") {
       item.classList.add("error");
       item.parentElement.classList.add("error");
+      hasError = true;
     }
 
     item.addEventListener("keyup", () => {
@@ -30,19 +32,39 @@ function checkInputs() {
 
   if (items[2].value != "") {
     checkEmailInput();
+    if (emailInput.classList.contains("error")) {
+      hasError = true; // Set hasError to true if an error occurs
+    }
   }
 
   items[2].addEventListener("keyup", () => {
     checkEmailInput();
+    if (!emailInput.classList.contains("error")) {
+      hasError = false; // Reset hasError to false if no error occurs
+    }
   });
 
   if (items[4].value != "") {
     checkPasswordMatch();
+    if (passwordValidation.classList.contains("error")) {
+      hasError = true; // Set hasError to true if an error occurs
+    }
   }
 
   items[4].addEventListener("keyup", () => {
     checkPasswordMatch();
+    if (!passwordValidation.classList.contains("error")) {
+      hasError = false; // Reset hasError to false if no error occurs
+    }
   });
+  if (!hasError) {
+    Swal.fire({
+      title: "Good job!",
+      text: "Your account is created!",
+      icon: "success",
+    });
+    form.reset();
+  }
 }
 
 function checkEmailInput() {
@@ -85,20 +107,5 @@ function checkPasswordMatch() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkInputs();
-
-  if (
-    !nameInput.classList.contains("error") &&
-    !emailInput.classList.contains("error") &&
-    !lastNameInput.classList.contains("error") &&
-    !passwordInput.classList.contains("error") &&
-    !passwordValidation.classList.contains("error")
-  ) {
-    Swal.fire({
-      title: "Good job!",
-      text: "Your account is created!",
-      icon: "success",
-    });
-    form.reset();
-    return false;
-  }
+  return false;
 });
